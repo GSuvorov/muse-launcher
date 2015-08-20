@@ -333,10 +333,10 @@ public class TomcatMain {
     {
 	// do this right up front, before JSPHelper is touched (which will call Log4JUtils.initialize())
 	String dirName = "epadd-settings"; // Warning: should be the same as in epaddInitializer
-	String settingsDir = System.getProperty("user.home") + File.separatorChar + "epadd-settings";
-	String logFile = settingsDir + File.separatorChar + "epadd.log";
-	String launcherLogFile = settingsDir + File.separatorChar + "epadd-launcher.log";
-	String launcherLogFileErr = settingsDir + File.separatorChar + "epadd-launcher.err.log";
+	String settingsDir = System.getProperty("user.home") + File.separatorChar + "muse-settings";
+	String logFile = settingsDir + File.separatorChar + "muse.log";
+	String launcherLogFile = settingsDir + File.separatorChar + "muse-launcher.log";
+	String launcherLogFileErr = settingsDir + File.separatorChar + "muse-launcher.err.log";
 	new File(settingsDir).mkdirs();
 
 	System.setProperty("muse.log", logFile);

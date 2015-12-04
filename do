@@ -1,6 +1,7 @@
 #!/bin/bash -u -e
 source ~/.bashrc
 
+RESOURCES_DIR=$HOME/epadd-settings/resources
 # build flattened jar
 mvn # clean compile assembly:single
 
@@ -13,7 +14,21 @@ jar uvf ../target/muse-standalone-jar-with-dependencies.jar crossdomain.xml
 
 # add wars to standalone-jar
 cd ../../muse/target
-/bin/cp -p muse-1.0.0-SNAPSHOT.war muse.war
+/bin/cp -p muse-war-1.0.0-SNAPSHOT.war muse.war
+mkdir tmp
+cd tmp
+mkdir WEB-INF;mkdir WEB-INF/classes;
+for F in $RESOURCES_DIR/*;
+do
+    cp -R $F WEB-INF/classes/
+done
+for R in WEB-INF/classes/*;
+do
+    echo "Updating with $R"
+    jar uvf ../muse.war $R
+done
+cd ..
+rm -R tmp
 jar uvf ../../muse-launcher/target/muse-standalone-jar-with-dependencies.jar muse.war
 
 # delete epadd.war to avoid any confusion about which version it is (regular or discovery)

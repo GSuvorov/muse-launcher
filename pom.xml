@@ -7,7 +7,7 @@
   <name>muse-standalone</name>
   <url>http://mobisocial.stanford.edu/muse/</url>
   <properties>
-    <tomcat.version>7.0.57</tomcat.version>
+    <tomcat.version>8.0.29</tomcat.version>
   </properties>
   <dependencies>
     <dependency>

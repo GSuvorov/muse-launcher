@@ -571,7 +571,7 @@ public class TomcatMain {
     {
 	Splash splash = null;
 
-        boolean headless = System.getProperty("epadd.mode.discovery") != null;
+        boolean headless = (System.getProperty("muse.mode.server") != null);
 	if (!headless)
 	    splash = new Splash();
 	else {

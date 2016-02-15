@@ -1,7 +1,7 @@
 #!/bin/bash -u -e
 source ~/.bashrc
 
-RESOURCES_DIR=$HOME/epadd-settings/resources
+RESOURCES_DIR=$HOME/epadd-settings
 # build flattened jar
 mvn # clean compile assembly:single
 
@@ -14,13 +14,14 @@ jar uvf ../target/muse-standalone-jar-with-dependencies.jar crossdomain.xml
 
 # add wars to standalone-jar
 cd ../../muse/target
-/bin/cp -p muse-war-1.0.0-SNAPSHOT.war muse.war
+/bin/cp -p muse-1.0.0-SNAPSHOT.war muse.war
+
 mkdir tmp
 cd tmp
 mkdir WEB-INF;mkdir WEB-INF/classes;
 for F in $RESOURCES_DIR/*;
 do
-    cp -R $F WEB-INF/classes/
+    cp -pr $F WEB-INF/classes/
 done
 for R in WEB-INF/classes/*;
 do

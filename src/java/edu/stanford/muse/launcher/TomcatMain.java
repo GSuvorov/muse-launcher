@@ -86,7 +86,7 @@ class Splash extends Frame implements ActionListener {
 	};
 }
 
-/** main launcher class for tomcat with the epadd.war webapp */
+/** main launcher class for tomcat with the muse.war webapp. Half-heartedly ported from epadd's version. */
 public class TomcatMain {
 
     static PrintStream savedSystemOut, savedSystemErr;
@@ -575,7 +575,7 @@ public class TomcatMain {
 	if (!headless)
 	    splash = new Splash();
 	else {
-            System.out.println("epadd running in headless discovery mode!");
+            System.out.println("Muse running in headless mode!");
             browserOpen = false;
         }
 

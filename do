@@ -16,9 +16,9 @@ jar uvf ../target/muse-standalone-jar-with-dependencies.jar crossdomain.xml
 cd ../../muse/target
 /bin/cp -p muse-1.0.0-SNAPSHOT.war muse.war
 
-mkdir tmp
+mkdir -p tmp
 cd tmp
-mkdir WEB-INF;mkdir WEB-INF/classes;
+mkdir -p WEB-INF/classes;
 for F in $RESOURCES_DIR/*;
 do
     cp -pr $F WEB-INF/classes/
@@ -29,11 +29,8 @@ do
     jar uvf ../muse.war $R
 done
 cd ..
-rm -R tmp
+# rm -R tmp
 jar uvf ../../muse-launcher/target/muse-standalone-jar-with-dependencies.jar muse.war
-
-# delete epadd.war to avoid any confusion about which version it is (regular or discovery)
-/bin/rm -f muse.war
 
 # prepare standalone jars
 cd ../../muse-launcher

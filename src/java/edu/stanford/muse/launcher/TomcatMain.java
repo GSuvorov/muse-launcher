@@ -134,10 +134,10 @@ public class TomcatMain {
 	    return null;			
 	}
 
-	out.println ("Copied epadd war file with size " + newFile.length() + " bytes to " + newFile.getAbsolutePath());
+	out.println ("Copied muse war file with size " + newFile.length() + " bytes to " + newFile.getAbsolutePath());
 
 	// clear the tomcat workdir which unfortunately caches jsp-generated java files sometimes and leads to terribly insiduous bugs.
-	String workDir = tmp + File.separator + "epadd" + File.separator + "working";
+	String workDir = tmp + File.separator + "muse" + File.separator + "working";
 	File workFile = new File(workDir); 
 	if (workFile.exists()) {
 	    out.println ("Tomcat work dir exists: " + workDir); 
@@ -332,7 +332,6 @@ public class TomcatMain {
     private static void setupLogging()
     {
 	// do this right up front, before JSPHelper is touched (which will call Log4JUtils.initialize())
-	String dirName = "epadd-settings"; // Warning: should be the same as in epaddInitializer
 	String settingsDir = System.getProperty("user.home") + File.separatorChar + "muse-settings";
 	String logFile = settingsDir + File.separatorChar + "muse.log";
 	String launcherLogFile = settingsDir + File.separatorChar + "muse-launcher.log";
@@ -459,7 +458,7 @@ public class TomcatMain {
 
         server = new Tomcat();
         server.setPort(PORT);
-        String baseDir = tmp + File.separator + "epadd";
+        String baseDir = tmp + File.separator + "muse";
 
         // create the webapps dir under tmpdir, otherwise we see a disturbing error message, it creates a local tomcat.9099 dir for deployment etc.
         // important: need to first clear the webapps and work dirs, otherwise it sometimes picks up a previous version of the war

@@ -11,15 +11,15 @@
 ############
 # it's better to unpack these files and commit the raw source
 # git has its own built in compression methods
-*.7z
-*.dmg
-*.gz
-*.iso
-*.rar
-*.tar
-*.zip
-*.jar
-*.war
+# *.7z
+# *.dmg
+# *.gz
+# *.iso
+# *.rar
+# *.tar
+# *.zip
+# *.jar
+# *.war
 
 # Logs and databases #
 ######################
@@ -58,3 +58,6 @@ Thumbs.db
 /wiki
 /indexes
 /.idea
+*~
+*.swp
+*.swo
